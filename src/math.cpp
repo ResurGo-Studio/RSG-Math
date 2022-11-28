@@ -2,48 +2,48 @@
 
 using namespace resurgo;
 
-vec::vec(options opt):dim(0),data(nullptr){
+vec::vec(const init opt):dim(0),data(nullptr){
 	switch(opt){
-		case options::vec2DN:
+		case init::vec2DN:
 			this->dim = 2;
 			this->data = new double[2];
 			this->data[0] = NAN;
 			this->data[1] = NAN;
 			break;
-		case options::vec2D0:
+		case init::vec2D0:
 			this->dim = 2;
 			this->data = new double[2];
 			this->data[0] = 0;
 			this->data[1] = 0;
 			break;
-		case options::vec2D01:
+		case init::vec2D01:
 			this->dim = 2;
 			this->data = new double[2];
 			this->data[0] = 1;
 			this->data[1] = 1;
 			break;
-		case options::vec3DN:
+		case init::vec3DN:
 			this->dim = 3;
 			this->data = new double[3];
 			this->data[0] = NAN;
 			this->data[1] = NAN;
 			this->data[2] = NAN;
 			break;
-		case options::vec3D0:
+		case init::vec3D0:
 			this->dim = 3;
 			this->data = new double[3];
 			this->data[0] = 0;
 			this->data[1] = 0;
 			this->data[2] = 0;
 			break;
-		case options::vec3D1:
+		case init::vec3D1:
 			this->dim = 3;
 			this->data = new double[3];
 			this->data[0] = 1;
 			this->data[1] = 1;
 			this->data[2] = 1;
 			break;
-		case options::vec4DN:
+		case init::vec4DN:
 			this->dim = 4;
 			this->data = new double[4];
 			this->data[0] = NAN;
@@ -51,7 +51,7 @@ vec::vec(options opt):dim(0),data(nullptr){
 			this->data[2] = NAN;
 			this->data[3] = NAN;
 			break;
-		case options::vec4D0:
+		case init::vec4D0:
 			this->dim = 4;
 			this->data = new double[4];
 			this->data[0] = 0;
@@ -59,7 +59,7 @@ vec::vec(options opt):dim(0),data(nullptr){
 			this->data[2] = 0;
 			this->data[3] = 0;
 			break;
-		case options::vec4D1:
+		case init::vec4D1:
 			this->dim = 4;
 			this->data = new double[4];
 			this->data[0] = 1;
@@ -67,7 +67,7 @@ vec::vec(options opt):dim(0),data(nullptr){
 			this->data[2] = 1;
 			this->data[3] = 1;
 			break;
-		case options::vec0:
+		case init::vec0:
 			this->dim = 0;
 			this->data = nullptr;
 			break;
@@ -203,3 +203,4 @@ double vec::dot(vec v){
 		return NAN;
 	}
 }
+

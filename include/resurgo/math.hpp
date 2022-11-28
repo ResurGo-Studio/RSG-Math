@@ -19,14 +19,20 @@ namespace resurgo{
 	// vec
 	class vec{
 		public:
-			enum class options{vec2DN,vec2D0, vec2D01, vec3DN, vec3D0, vec3D1, vec4DN, vec4D0, vec4D1, vec0};
+			/**
+			 * @brief init options for a new vector, eg:
+			 * 		v  : vector
+			 * 		*D : * dimension
+			 * 	the last letter is the initial value
+			 */
+			enum class init{vec2DN,vec2D0, vec2D01, vec3DN, vec3D0, vec3D1, vec4DN, vec4D0, vec4D1, vec0};
 
 			/**
 			 * @brief Construct a new vec object with options
 			 *
 			 * @param opt options
 			 */
-			vec(options opt = options::vec0);
+			vec(const init opt = init::vec0);
 
 			/**
 			 * @brief Destroy the vec object
@@ -212,6 +218,29 @@ namespace resurgo{
 	class mat{
 		public:
 			/**
+			 * @brief init option for a mat:
+			 */
+			enum class init{mat0, mat1, mat4D0, mat4DN, matI4D};
+			/**
+			 * @brief  option for a mat, used with a vector
+			 */
+			enum class option{Scaling,Rotation,Translation};
+
+			/**
+			 * @brief Construct a new mat object init option
+			 *
+			 * @param initOption - the init option
+			 */
+			mat(const init initOption=init::mat0);
+
+			/**
+			 * @brief Construct a new mat object with option and vec
+			 *
+			 * @param opt
+			 * @param v
+			 */
+			mat(const option opt, const vec& v);
+			/**
 			 * @brief Construct a new mat object
 			 *
 			 * @param row - row of the matrix
@@ -314,8 +343,19 @@ namespace resurgo{
 			int row;
 			int col;
 			bool as_int;
-			void** data;
+			vec* data;
 	};
+
+	vec operator* (mat m, vec v);
+	vec operator* (vec v, mat m);
 }
+
+class temp{
+	public:
+		temp(int a, int *b){};
+		~temp();
+		void print();
+	private:
+};
 
 #endif
