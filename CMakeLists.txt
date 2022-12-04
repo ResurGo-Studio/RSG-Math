@@ -24,12 +24,10 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # if COMPILE_EXAMPLES is set to ON, compile the examples
 option(COMPILE_EXAMPLES "Compile the examples" ON)
 
-add_executable(OmegaChartCreator
+add_executable(example1
 	src/example0x01.cpp
+	src/math.cpp
 )
 
-if(COMPILE_EXAMPLES)
-	message(STATUS "Compiling examples")
-endif()
 
 

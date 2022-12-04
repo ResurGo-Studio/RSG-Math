@@ -2,205 +2,85 @@
 
 using namespace resurgo;
 
-vec::vec(const init opt):dim(0),data(nullptr){
-	switch(opt){
-		case init::vec2DN:
-			this->dim = 2;
-			this->data = new double[2];
-			this->data[0] = NAN;
-			this->data[1] = NAN;
-			break;
-		case init::vec2D0:
-			this->dim = 2;
-			this->data = new double[2];
-			this->data[0] = 0;
-			this->data[1] = 0;
-			break;
-		case init::vec2D01:
-			this->dim = 2;
-			this->data = new double[2];
-			this->data[0] = 1;
-			this->data[1] = 1;
-			break;
-		case init::vec3DN:
-			this->dim = 3;
-			this->data = new double[3];
-			this->data[0] = NAN;
-			this->data[1] = NAN;
-			this->data[2] = NAN;
-			break;
-		case init::vec3D0:
-			this->dim = 3;
-			this->data = new double[3];
-			this->data[0] = 0;
-			this->data[1] = 0;
-			this->data[2] = 0;
-			break;
-		case init::vec3D1:
-			this->dim = 3;
-			this->data = new double[3];
-			this->data[0] = 1;
-			this->data[1] = 1;
-			this->data[2] = 1;
-			break;
-		case init::vec4DN:
-			this->dim = 4;
-			this->data = new double[4];
-			this->data[0] = NAN;
-			this->data[1] = NAN;
-			this->data[2] = NAN;
-			this->data[3] = NAN;
-			break;
-		case init::vec4D0:
-			this->dim = 4;
-			this->data = new double[4];
-			this->data[0] = 0;
-			this->data[1] = 0;
-			this->data[2] = 0;
-			this->data[3] = 0;
-			break;
-		case init::vec4D1:
-			this->dim = 4;
-			this->data = new double[4];
-			this->data[0] = 1;
-			this->data[1] = 1;
-			this->data[2] = 1;
-			this->data[3] = 1;
-			break;
-		case init::vec0:
-			this->dim = 0;
-			this->data = nullptr;
-			break;
-		}
+vec::vec(std::size_t size) : _dim(size) {
+	data[size] = {0};
 }
 
-vec::~vec(){
-	if(this->data != nullptr){
-		delete[] this->data;
+template <typename T>
+vec::vec(std::size_t size, T value) : _dim(size) {
+	data[size] = {value};
+}
+
+template <typename T>
+vec::vec(std::initializer_list<T> list) : _dim(list.size()) {
+	data[list.size()] = {0};
+	std::size_t i = 0;
+	for (auto it = list.begin(); it != list.end(); ++it) {
+		data[i] = *it;
+		++i;
 	}
 }
 
-vec::vec(const int dim):dim(dim),data(nullptr){
-	if(dim > 0){
-		this->data = new double[dim];
-		for(int i = 0; i < dim; i++){
-			this->data[i] = 0;
-		}
+template <typename iter>
+vec::vec(iter begin, iter end) : _dim(end - begin) {
+	data[end - begin] = {0};
+	for (std::size_t i = 0; i < end - begin; i++) {
+		data[i] = *(begin + i);
 	}
 }
 
-vec::vec(const int dim, const double* data):dim(dim),data(nullptr){
-	if(dim > 0){
-		this->data = new double[dim];
-		for(int i = 0; i < dim; i++){
-			this->data[i] = data[i];
-		}
+template <typename iter>
+vec::vec(iter begin, std::size_t size) : _dim(size) {
+	data[size] = {0};
+	for (std::size_t i = 0; i < size; i++) {
+		data[i] = *(begin + i);
 	}
 }
 
-
-vec::vec(const int dim, const float* data):dim(dim),data(nullptr){
-	if(dim > 0){
-		this->data = new double[dim];
-		for(int i = 0; i < dim; i++){
-			this->data[i] = data[i];
-		}
+vec::vec(const vec& v) : _dim(v._dim) {
+	data[v._dim] = {0};
+	for (std::size_t i = 0; i < v._dim; i++) {
+		data[i] = v.data[i];
 	}
 }
 
-vec::vec(const int dim, const int* data):dim(dim),data(nullptr){
-	if(dim > 0){
-		this->data = new double[dim];
-		for(int i = 0; i < dim; i++){
-			this->data[i] = data[i];
-		}
+vec::vec(vec&& v) : _dim(v._dim) {
+	data[v._dim] = {0};
+	for (std::size_t i = 0; i < v._dim; i++) {
+		data[i] = v.data[i];
 	}
 }
 
-vec::vec(const double x, const double y, const double z):dim(3),data(nullptr){
-	this->data = new double[3];
-	this->data[0] = x;
-	this->data[1] = y;
-	this->data[2] = z;
+double& vec::operator[](std::size_t index) {
+	return data[index];
 }
 
-vec::vec(const double x, const double y):dim(2),data(nullptr){
-	this->data = new double[2];
-	this->data[0] = x;
-	this->data[1] = y;
+const double& vec::operator[](std::size_t index) const {
+	return index < _dim ? data[index] : 0.0;
 }
 
-
-vec::vec(const int x, const int y, const int z):dim(3),data(nullptr){
-	this->data = new double[3];
-	this->data[0] = x;
-	this->data[1] = y;
-	this->data[2] = z;
-}
-
-vec::vec(const int x, const int y):dim(2),data(nullptr){
-	this->data = new double[2];
-	this->data[0] = x;
-	this->data[1] = y;
-}
-
-vec::vec(const vec& v):dim(v.dim),data(nullptr){
-	if(v.dim > 0){
-		this->data = new double[v.dim];
-		for(int i = 0; i < v.dim; i++){
-			this->data[i] = v.data[i];
-		}
+vec& vec::operator=(const vec& v) {
+	_dim = v._dim;
+	for (std::size_t i = 0; i < v._dim; i++) {
+		data[i] = v.data[i];
 	}
+	return *this;
 }
 
-void vec::operator= (const int* data){
-	if(this->dim > 0){
-		for(int i = 0; i < this->dim; i++){
-			this->data[i] = data[i];
-		}
+vec& vec::operator=(vec&& v) {
+	_dim = v._dim;
+	for (std::size_t i = 0; i < v._dim; i++) {
+		data[i] = v.data[i];
 	}
+	return *this;
 }
 
-void vec::operator= (const float* data){
-	if(this->dim > 0){
-		for(int i = 0; i < this->dim; i++){
-			this->data[i] = data[i];
-		}
-	}
+namespace RSGoperator {
+	// const vec operator+(const vec& v1,const vec& v2){
+		// vec v3(v1.dim()>v2.dim()?v1.dim():v2.dim());
+		// for(std::size_t i=0;i<v1.dim();i++){
+			// v3[i]=v1[i]+v2[i];
+		// }
+		// return v3;
+	// };
 }
-
-void vec::operator= (const double* data){
-	if(this->dim > 0){
-		for(int i = 0; i < this->dim; i++){
-			this->data[i] = data[i];
-		}
-	}
-}
-
-
-vec vec::cross(vec v){
-	if(this->dim == 3 && v.dim == 3){
-		vec result(3);
-		result.data[0] = this->data[1] * v.data[2] - this->data[2] * v.data[1];
-		result.data[1] = this->data[2] * v.data[0] - this->data[0] * v.data[2];
-		result.data[2] = this->data[0] * v.data[1] - this->data[1] * v.data[0];
-		return result;
-	}
-	else{
-		return vec(options::vec3DN);
-	}
-}
-
-double vec::dot(vec v){
-	if(this->dim == v.dim){
-		double result = 0;
-		for(int i = 0; i < this->dim; i++){
-			result += this->data[i] * v.data[i];
-		}
-		return result;
-	}
-	else{
-		return NAN;
-	}
-}
-
