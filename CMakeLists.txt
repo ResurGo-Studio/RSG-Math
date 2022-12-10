@@ -25,8 +25,8 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 option(COMPILE_EXAMPLES "Compile the examples" ON)
 
 add_executable(example1
+	src/vector.cpp
 	src/example0x01.cpp
-	src/math.cpp
 )
 
 
