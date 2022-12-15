@@ -12,18 +12,18 @@
 /**
  * @brief 
  * \~english open compile time and runtime warnings for vectors(make it strict :P ).
- * \~chinese ç¼–è¯‘ä»¥åŠè¿è¡Œæ—¶ è¿›è¡Œå¯¹äºvectorsçš„è­¦å‘Š (ä¸ºäº†ä½¿å…¶æ›´ä¸¥æ ¼ï¼ˆé›¾ )
+ * \~chinese ±àÒëÒÔ¼°ÔËĞĞÊ± ½øĞĞ¶ÔÓÚvectorsµÄ¾¯¸æ (ÎªÁËÊ¹Æä¸üÑÏ¸ñ£¨Îí )
  *
  * \~english this is a macro that will throw exception when you trying to do something
- * \~chinese è¿™æ˜¯ä¸€ä¸ªåœ¨ä½ å°è¯•æ‰§è¡Œä¸€äº›æ“ä½œæ—¶ä¼šäº§ç”Ÿå¼‚å¸¸çš„å®
+ * \~chinese ÕâÊÇÒ»¸öÔÚÄã³¢ÊÔÖ´ĞĞÒ»Ğ©²Ù×÷Ê±»á·¢ÉúÒì³£µÄºê
  * \~english that are not allowed such as doing operations with vectors with different dimentions.
- * \~chinese æ¯”å¦‚å¯¹ä¸åŒç»´åº¦çš„vectorè¿›è¡Œæ“ä½œï¼Œè¿™æ˜¯ä¸å…è®¸çš„
+ * \~chinese ±ÈÈç¶Ô²»Í¬Î¬¶ÈµÄvector½øĞĞ²Ù×÷£¬ÕâÊÇ²»ÔÊĞíµÄ
  * \~english if this macro is defined, it will include <cassert> and <cexeptions>
- * \~chinese å¦‚æœè¿™ä¸ªå®è¢«å®šä¹‰äº† , ä»–å°†å¼•ç”¨<cassert>å’Œ<cexeptions>
+ * \~chinese Èç¹ûÕâ¸öºê±»¶¨ÒåÁË , Ëü½«ÒıÓÃ<cassert>ºÍ<cexeptions>
  * 
  * @note 
  * \~english undefine it to disable it
- * \~chinese å¯ä»¥å–æ¶ˆå¯¹ä»–çš„å®šä¹‰æ¥ç¦ç”¨ä»–
+ * \~chinese ¿ÉÒÔÈ¡Ïû¶ÔËüµÄ¶¨ÒåÀ´½ûÓÃËû
  */
 #define RSG_VECTOR_STRICT
 
@@ -42,7 +42,7 @@ namespace resurgo {
 	/**
 	 * @brief 
 	 * \~english a vector class
-	 * \~chinese ä¸€ä¸ª vector ç±»
+	 * \~chinese Ò»¸övectorÀà
 	 */
 class vec {
        private:
@@ -53,7 +53,7 @@ class vec {
 	/**
 	 * @brief 
 	 * \~english Construct a new vec object
-	 * \~chinese åˆ›å»ºä¸€ä¸ªæ–°çš„ vec å¯¹è±¡
+	 * \~chinese ´´½¨Ò»¸öĞÂµÄvec¶ÔÏó
 	 *
 	 * @param size
 	 */
