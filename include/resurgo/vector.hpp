@@ -11,19 +11,19 @@
 
 /**
  * @brief 
- * \~english open compile time and runtime warnings for vectors(make it strict :P ).
- * \~chinese 编译以及运行时 进行对于vectors的警告 (为了使其更严格（雾 )
+ * \~English open compile time and runtime warnings for vectors(make it strict :P ).
+ * \~Chinese 编译以及运行时 进行对于vectors的警告 (为了使其更严格（雾 )
  *
- * \~english this is a macro that will throw exception when you trying to do something
- * \~chinese 这是一个在你尝试执行一些操作时会产生异常的宏
- * \~english that are not allowed such as doing operations with vectors with different dimentions.
- * \~chinese 比如对不同维度的vector进行操作，这是不允许的
- * \~english if this macro is defined, it will include <cassert> and <cexeptions>
- * \~chinese 如果这个宏被定义了 , 他将引用<cassert>和<cexeptions>
+ * \~English this is a macro that will throw exception when you trying to do something
+ * \~Chinese 这是一个在你尝试执行一些操作时会产生异常的宏
+ * \~English that are not allowed such as doing operations with vectors with different dimentions.
+ * \~Chinese 比如对不同维度的vector进行操作，这是不允许的
+ * \~English if this macro is defined, it will include <cassert> and <cexeptions>
+ * \~Chinese 如果这个宏被定义了 , 他将引用<cassert>和<cexeptions>
  * 
  * @note 
- * \~english undefine it to disable it
- * \~chinese 可以取消对他的定义来禁用他
+ * \~English undefine it to disable it
+ * \~Chinese 可以取消对他的定义来禁用他
  */
 #define RSG_VECTOR_STRICT
 
@@ -41,8 +41,8 @@ namespace resurgo {
 
 	/**
 	 * @brief 
-	 * \~english a vector class
-	 * \~chinese 一个 vector 类
+	 * \~English a vector class
+	 * \~Chinese 一个 vector 类
 	 */
 class vec {
        private:
@@ -52,8 +52,8 @@ class vec {
        public:
 	/**
 	 * @brief 
-	 * \~english Construct a new vec object
-	 * \~chinese 创建一个新的 vec 对象
+	 * \~English Construct a new vec object
+	 * \~Chinese 创建一个新的 vec 对象
 	 *
 	 * @param size
 	 */
