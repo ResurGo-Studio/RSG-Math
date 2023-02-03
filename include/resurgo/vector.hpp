@@ -11,24 +11,22 @@
 
 /**
  * @brief 
- * \~english open compile time and runtime warnings for vectors(make it strict :P ).
- * \~chinese 编译以及运行时 进行对于vectors的警告 (为了使其更严格（雾 )
+ * \~English open compile time and runtime warnings for vectors(make it strict :P ).
+ * \~Chinese 编译以及运行时 进行对于vectors的警告 (为了使其更严格（雾 ).
  *
- * \~english this is a macro that will throw exception when you trying to do something
- * \~chinese 这是一个在你尝试执行一些操作时会产生异常的宏
- * \~english that are not allowed such as doing operations with vectors with different dimentions.
- * \~chinese 比如对不同维度的vector进行操作，这是不允许的
- * \~english if this macro is defined, it will include <cassert> and <cexeptions>
- * \~chinese 如果这个宏被定义了 , 他将引用<cassert>和<cexeptions>
+ * \~English this is a macro that will throw exception when you trying to do something.
+ * \~Chinese 这是一个在你尝试执行一些操作时会产生异常的宏.
+ * \~English that are not allowed such as doing operations with vectors with different dimentions.
+ * \~Chinese 比如对不同维度的vector进行操作，这是不允许的.
+ * \~English if this macro is defined, it will include <cassert> and <cexeptions>.
+ * \~Chinese 如果这个宏被定义了 , 他将引用<cassert>和<cexeptions>.
  * 
  * @note 
- * \~english undefine it to disable it
- * \~chinese 可以取消对他的定义来禁用他
- */
-#define RSG_VECTOR_STRICT
-
+ * \~English define it to enable it.
+ * \~Chinese 定义它来启用它.
+ **/
 #ifdef RSG_VECTOR_STRICT
-#define A
+
 #endif
 
 #include <cmath>
@@ -41,8 +39,8 @@ namespace resurgo {
 
 	/**
 	 * @brief 
-	 * \~english a vector class
-	 * \~chinese 一个 vector 类
+	 * \~English a vector class.
+	 * \~Chinese 一个 vector 类.
 	 */
 class vec {
        private:
@@ -52,13 +50,33 @@ class vec {
        public:
 	/**
 	 * @brief 
-	 * \~english Construct a new vec object
-	 * \~chinese 创建一个新的 vec 对象
+	 * \~English Construct a new vec object.
+	 * \~Chinese 创建一个新的 vec 对象.
 	 *
 	 * @param size
+	 * \~English the size of the vector.
+	 * \~Chinese vector的大小.
+	 *
+	 * @note
+	 * \~English the vector will be initialized with 0.
+	 * \~Chinese vector将被初始化为0.
 	 */
 	vec(std::size_t size);
 
+	/* ===============================================================================*/
+	/**
+	 * @brief 
+	 * \~English Construct a new vec object.
+	 * \~Chinese 创建一个新的 vec 对象.
+	 *
+	 * @param size
+	 * \~English the size of the vector.
+	 * \~Chinese vector的大小.
+	 * @param list
+	 * \~English the initializer-list of the vector.
+	 * \~Chinese vector的初始化列表.
+	 */
+	/* ===============================================================================*/
 	vec(std::size_t size, std::initializer_list<int> list);
 
 	vec(std::size_t size, std::initializer_list<double> list);

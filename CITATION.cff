@@ -1,0 +1,25 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: RSG-Math
+message: >-
+  If you use this library, I personally prefer to
+  cite it using the metadata from this file. :)
+type: software
+authors:
+  - given-names: Jiqing
+    family-names: Yang
+    email: lwerdxzl@hotmail.com
+repository-code: >-
+  https://github.com/ResurGo-Studio/RSG-Math/tree/main
+abstract: >-
+  A math library that is targeted to be light and
+  able to parallel processing
+keywords:
+  - Math
+  - 'Parallel  '
+license: Unlicense
+version: 0.0.1 alpha
+date-released: '2022-12-15'
+
